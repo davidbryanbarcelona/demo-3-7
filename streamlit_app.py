@@ -103,8 +103,9 @@ def display_form2():
     form2.write('The dataset descriptive stats')
     form2.write(df.describe().T)
 
-    # make the data numeric
-    #df = labeltonumeric(df)    
+    le = LabelEncoder()
+    for i in range(14):
+        df[i] = le.fit_transform(df[i])
 
     form2.write('Got here')
     # Separate features and target variable
@@ -177,12 +178,6 @@ def update_values():
 
     st.session_state['user_inputs'] = [[initial_payment, 
         last_payment, credit_score, house_number]]
-
-def labeltonumeric(df):
-   le = LabelEncoder()
-   for i in range(14):
-        df[i] = le.fit_transform(df[i])
-   return df
 
 if __name__ == "__main__":
     app()
