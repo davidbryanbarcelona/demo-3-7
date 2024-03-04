@@ -152,7 +152,9 @@ def display_form2():
     # Display the plot
     plt.tight_layout()  # Prevent overlapping elements
     form2.pyplot(fig)
-
+    form2.write("""Figure 2. The plot shows the Adaptivity Level of respondents 
+                according to Gender""")
+    
     # Plot the Device and Adaptivity
     fig, ax = plt.subplots(figsize=(6, 3))
     # Create the countplot with clear title and legend
@@ -162,7 +164,7 @@ def display_form2():
     # Display the plot
     plt.tight_layout()  
     form2.pyplot(fig)
-    form2.write("""Figure 1. The plot shows the Adaptivity Level of respondents 
+    form2.write("""Figure 3. The plot shows the Adaptivity Level of respondents 
                 according to their Device""")
     
     # Plot the Class Duration and Adaptivity
@@ -174,7 +176,7 @@ def display_form2():
     # Display the plot
     plt.tight_layout()  
     form2.pyplot(fig)
-    form2.write("""Figure 1. The plot shows the Adaptivity Level of respondents 
+    form2.write("""Figure 4. The plot shows the Adaptivity Level of respondents 
                 according to Class Duration""")
     
     le = LabelEncoder()
