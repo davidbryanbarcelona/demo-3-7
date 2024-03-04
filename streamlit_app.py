@@ -103,21 +103,6 @@ def display_form2():
     form2.write('The dataset descriptive stats')
     form2.write(df.describe().T)
 
-    le = LabelEncoder()
-
-    #Get the list of column names
-    column_names = df.columns.tolist()
-    # Loop through each column name
-    for cn in column_names:
-        df[cn] = le.fit_transform(df[cn])
-
-    # Separate features and target variable
-    X = df.drop('Adaptivity Level', axis=1)  # Target variable column name
-    y = df['Adaptivity Level']
-    
-    # Split data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
     fig, ax = plt.subplots(figsize=(6, 2))
 
     # Create the horizontal barplot
@@ -138,6 +123,30 @@ def display_form2():
     # Display the plot
     plt.tight_layout()  # Prevent overlapping elements
     form2.pyplot(fig)
+
+    # Plot the Device and Adaptivity
+    fig, ax = plt.subplots(figsize=(6, 3))
+    # Create the countplot with clear title and legend
+    p = sns.countplot(x='Device', data = df, hue='Adaptivity Level',  palette='bright')
+    ax.set_title("Adaptivity Grouped by Device", fontsize=14)
+    legend = ax.legend(loc='upper right', bbox_to_anchor=(1.2, 1))
+    # Display the plot
+    plt.tight_layout()  
+    form2.pyplot(fig)
+
+    le = LabelEncoder()
+    #Get the list of column names
+    column_names = df.columns.tolist()
+    # Loop through each column name
+    for cn in column_names:
+        df[cn] = le.fit_transform(df[cn])
+
+    # Separate features and target variable
+    X = df.drop('Adaptivity Level', axis=1)  # Target variable column name
+    y = df['Adaptivity Level']
+    
+    # Split data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Create and train the Decision Tree Classifier   
     clf = DecisionTreeClassifier(random_state=100, max_depth=3, min_samples_leaf=5)
