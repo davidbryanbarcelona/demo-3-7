@@ -140,7 +140,8 @@ def display_form2():
     ax.set_title('Distribution of Adaptivity Level')
     # Display the plot using Streamlit
     form2.pyplot(fig)
-    form2.write("""Figure 1. The data shows the distribution of respondents as to their Adaptivity Level""")
+    form2.write("""Figure 1. The plot shows the distribution of respondents 
+                according to their Adaptivity Level""")
     
     # Plot the Gender and Adaptivity
     fig, ax = plt.subplots(figsize=(6, 3))
@@ -161,7 +162,9 @@ def display_form2():
     # Display the plot
     plt.tight_layout()  
     form2.pyplot(fig)
-
+    form2.write("""Figure 1. The plot shows the Adaptivity Level of respondents 
+                according to their Device""")
+    
     # Plot the Class Duration and Adaptivity
     fig, ax = plt.subplots(figsize=(6, 3))
     # Create the countplot with clear title and legend
@@ -171,7 +174,9 @@ def display_form2():
     # Display the plot
     plt.tight_layout()  
     form2.pyplot(fig)
-
+    form2.write("""Figure 1. The plot shows the Adaptivity Level of respondents 
+                according to Class Duration""")
+    
     le = LabelEncoder()
     #Get the list of column names
     column_names = df.columns.tolist()
