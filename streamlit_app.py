@@ -131,11 +131,18 @@ def display_form2():
     form2.write('The dataset descriptive stats')
     form2.write(df.describe().T)
 
-    data = {}
-    for col in df.columns:
-        data[col] = df[col].unique()
-    df2 = pd.DataFrame(data).rename(columns={'index': 'Column'})
-    form2.write(df2)
+    # Get column names and unique values
+    columns = df.columns
+    unique_values = {col: df[col].unique() for col in columns}
+    # Display columns
+    st.write("**Columns:**")
+    for col in columns:
+        st.write(f"- {col}")
+
+# Display unique values for each column
+st.write("\n**Unique Values:**")
+for col, values in unique_values.items():
+    st.write(f"- {col}: {', '.join(map(str, values))}")
 
     fig, ax = plt.subplots(figsize=(6, 2))
     # Create the horizontal barplot
