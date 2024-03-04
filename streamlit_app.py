@@ -67,17 +67,20 @@ def display_form1():
     form1.write(text)
 
     form1.subheader('Random Forest')
-    text = """Generally handles overlapping clusters better than decision trees due 
-    to averaging predictions from multiple trees. Can still have issues with 
-    highly overlapped clusters. Ensemble method, improves robustness and reduces 
-    overfitting compared to single decision trees."""
-    form1.write(text)
-
-    form1.subheader('Extreme Random Forest')
     form1.write("""A powerful and versatile classifier that uncovers patterns in 
     diverse data, leverages multiple decision trees for robust predictions, 
     offers interpretability into its reasoning, handles missing data effectively, 
     and boasts fast training times for real-time applications.""")
+
+    form1.subheader('Extreme Random Forest')
+    text = """Building upon the strengths of Random Forest, Extra Trees 
+    offer similar benefits like pattern discovery across various data, 
+    robust predictions through ensembles, and fast training times. However, 
+    they introduce increased randomness in the tree building process, 
+    potentially leading to improved performance in specific scenarios 
+    while maintaining interpretability and handling missing data effectively. 
+    It's a worthwhile alternative to explore when dealing with complex data.."""
+    form1.write(text)
 
     form1.subheader('Adativity Level Dataset')
     text = """The adaptivity dataset contains information about 
