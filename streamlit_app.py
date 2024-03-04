@@ -47,7 +47,7 @@ def display_form1():
     form1 = st.form("intro")
 
     # Display the DataFrame with formatting
-    form1.title("Students' Adaptability Level Prediction in Online Education")
+    form1.title("Students' Adaptivity Level Prediction in Online Education")
     text = """(c) 2024 Louie F. Cervantes, M.Eng. [Information Engineering] 
     CCS 229 - Intelligent Systems
     Computer Science Department
@@ -68,9 +68,9 @@ def display_form1():
     similar, or some other stopping criteria is met."""
     form1.write(text)
 
-    form1.write('Adatability Level Dataset')
-    text = """The adaptability dataset contains information about 
-    the adaptability of students in an online learning environment. 
+    form1.write('Adativity Level Dataset')
+    text = """The adaptivity dataset contains information about 
+    the adaptivity of students in an online learning environment. 
     It has 1205 data points, representing individual students. 
     There are 14 features, including:
     Demographic information:
