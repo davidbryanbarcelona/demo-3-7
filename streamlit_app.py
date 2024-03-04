@@ -104,7 +104,7 @@ def display_form2():
     form2.write(df.describe().T)
 
     le = LabelEncoder()
-    for i in range(14):
+    for i in range(13):
         df[i] = le.fit_transform(df[i])
 
     form2.write('Got here')
