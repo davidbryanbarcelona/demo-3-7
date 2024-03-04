@@ -134,10 +134,6 @@ def display_form2():
     # Get column names and unique values
     columns = df.columns
     unique_values = {col: df[col].unique() for col in columns}
-    # Display columns
-    form2.write("**Columns:**")
-    for col in columns:
-        form2.write(f"- {col}")
 
     # Display unique values for each column
     form2.write("\n**Unique Values:**")
