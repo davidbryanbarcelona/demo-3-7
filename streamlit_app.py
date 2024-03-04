@@ -194,7 +194,6 @@ def display_form3():
         user_inputs = np.array(st.session_state['user_inputs'])
 
         form3.write(user_inputs)
-        form3.write(test_data_scaled)
 
         predicted =  st.session_state["clf"].predict(test_data_scaled)
         result = 'Will the debtor pay? The model predicts: ' + predicted[0]
