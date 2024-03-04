@@ -226,7 +226,7 @@ def display_form3():
     form3.subheader('Prediction')
     form3.write('The trained model will predict the Adaptivity Level')
 
-    form3.subheader('Demographic Option')
+    form3.write('Demographic Information')
     gender = form3.selectbox('Gender:', ['Boy', 'Girl'])
     age = form3.selectbox('Age', ['21-25', '16-20', '11-15', '26-30', '6-10', '1-5'])
                        
