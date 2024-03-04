@@ -87,7 +87,7 @@ def display_form1():
     the adaptivity of students in an online learning environment. 
     It has 1205 data points, representing individual students. 
     There are 14 features, including:
-    Demographic information:
+    \nDemographic information:
     Gender, Age, Education Level, Institution Type, Location
     \nLearning environment: IT Student, Load-shedding, 
     Financial Condition, Internet Type, Network Type, 
