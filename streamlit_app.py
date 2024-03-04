@@ -85,7 +85,7 @@ def display_form1():
     # Create the selecton of classifier
     clf = tree.DecisionTreeClassifier()
     options = ['Decision Tree', 'Random Forest Classifier', 'Extreme Random Forest Classifier']
-    selected_option = st.selectbox('Select the classifier', options)
+    selected_option = form1.selectbox('Select the classifier', options)
     if selected_option =='Random Forest Classifier':
         clf = RandomForestClassifier(n_jobs=2, random_state=0)
     elif selected_option=='Extreme Random Forest Classifier':        
