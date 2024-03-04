@@ -228,7 +228,7 @@ def display_form3():
 
     form3.subheader('Demographic Option')
     gender = form3.selectbox('Gender:', ['Boy', 'Girl'])
-    age = form3.selectbox('Age' ['21-25', '16-20', '11-15', '26-30', '6-10', '1-5]')
+    age = form3.selectbox('Age', ['21-25', '16-20', '11-15', '26-30', '6-10', '1-5'])
                        
     update_values()
 
