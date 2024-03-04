@@ -111,7 +111,6 @@ def display_form2():
     for cn in column_names:
         df[cn] = le.fit_transform(df[cn])
 
-    form2.write('Got here')
     # Separate features and target variable
     X = df.drop('Adaptivity Level', axis=1)  # Target variable column name
     y = df['Adaptivity Level']
@@ -130,6 +129,16 @@ def display_form2():
     form2.pyplot(fig)
     form2.write("""Figure 1. The data shows the distribution of respondents as to their Adaptivity Level""")
     
+    # Plot the Gender and Adaptivity
+    fig, ax = plt.subplots(figsize=(6, 3))
+    # Create the countplot with clear title and legend
+    p = sns.countplot(x='Gender', data = df1, hue='Adaptivity Level',  palette='bright')
+    ax.set_title("Adaptivity Grouped by Sex", fontsize=14)
+    legend = ax.legend(loc='upper right', bbox_to_anchor=(1.2, 1))
+    # Display the plot
+    plt.tight_layout()  # Prevent overlapping elements
+    form2.pyplot(fig)
+
     # Create and train the Decision Tree Classifier   
     clf = DecisionTreeClassifier(random_state=100, max_depth=3, min_samples_leaf=5)
     clf.fit(X_train, y_train)
