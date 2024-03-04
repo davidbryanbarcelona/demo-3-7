@@ -151,42 +151,6 @@ def display_form3():
     form3.subheader('Prediction')
     form3.write('The trained model will predict if a debtor will repay the loan or not')
 
-    initial_payment = form3.slider(
-        label="Initial Payment:",
-        min_value=100,
-        max_value=500,
-        on_change=update_values(),
-        key="initial_payment",
-        value = 300
-    )
-
-    last_payment = form3.slider(
-        label="Last Payment:",
-        min_value=10000,
-        max_value=15000,
-        on_change=update_values(),
-        key="last_payment",
-        value = 12000
-    )
-
-    credit_score = form3.slider(
-        label="Credit Score:",
-        min_value=100,
-        max_value=1000,
-        on_change=update_values(),
-        key="credit_score",
-        value = 500
-    )
-
-    house_number = form3.slider(
-        label="House Number:",
-        min_value=3000,
-        max_value=5000,
-        on_change=update_values(),
-        key="house_number",
-        value = 3700
-    )
-
     update_values()
 
     predictbn = form3.form_submit_button("Predict")
