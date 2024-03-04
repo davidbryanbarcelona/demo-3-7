@@ -48,7 +48,7 @@ def display_form1():
     form1 = st.form("intro")
 
     # Display the DataFrame with formatting
-    form1.title("Students' Adaptivity Level Prediction in Online Education")
+    form1.title("Students' Adaptivity Level Online Education Prediction Using ML Approach")
     text = """(c) 2024 Louie F. Cervantes, M.Eng. [Information Engineering] 
     CCS 229 - Intelligent Systems
     Computer Science Department
