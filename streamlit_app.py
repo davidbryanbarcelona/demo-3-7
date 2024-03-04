@@ -50,7 +50,7 @@ def display_form1():
     form1 = st.form("intro")
 
     # Display the DataFrame with formatting
-    form1.title("Loan Repayment Predictor based on the Decision Tree Algorithm")
+    form1.title("Students' Adaptability Level Prediction in Online Education")
     text = """(c) 2024 Louie F. Cervantes, M.Eng. [Information Engineering] 
     CCS 229 - Intelligent Systems
     Computer Science Department
@@ -71,28 +71,18 @@ def display_form1():
     similar, or some other stopping criteria is met."""
     form1.write(text)
 
-    form1.write('Loan Repayment Dataset')
-    text = """This dataset contains information about debtors and their loan repayment 
-    behavior. It could be used to train a decision tree classification model to 
-    predict whether a future borrower is likely to repay a loan."""
-    form1.write(text)
-    form1.write('Features:')
-    text = """Initial Payment: Amount of money paid upfront when the loan was taken. (Numerical)
-    Last Payment: Amount of the last payment made by the borrower. (Numerical)
-    Credit Score: Numerical score indicating the borrower's creditworthiness. (Numerical)
-    House Number: Unique identifier for the borrower's residence. (Categorical)"""
-    form1.write(text)
-    form1.write('Label')
-    text = """Result (Yes/No): Indicates whether the borrower fully repaid the loan 
-    ("Yes") or not ("No"). (Categorical)"""
-    form1.write(text)
-    form1.write('Potential Uses:')
-    text = """This dataset could be used by banks or lending institutions to assess 
-    the creditworthiness of potential borrowers and make informed lending decisions.
-    It can be used to identify patterns in loan repayment behavior, such as the 
-    relationship between credit score and repayment likelihood.
-    The model trained on this data can be used to predict the risk of 
-    loan default for future borrowers."""
+    form1.write('Adatability Level Dataset')
+    text = """The adaptability dataset contains information about 
+    the adaptability of students in an online learning environment. 
+    It has 1205 data points, representing individual students. 
+    There are 14 features, including:
+    Demographic information:
+    Gender, Age, Education Level, Institution Type, Location
+    \nLearning environment: IT Student, Load-shedding, 
+    Financial Condition, Internet Type, Network Type, 
+    Class Duration
+    \nStudent behaviour: Self Lms, Device
+    \nTarget variable: Adaptivity Level"""
     form1.write(text)
                                                                               
     submit1 = form1.form_submit_button("Start")
