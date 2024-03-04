@@ -134,6 +134,16 @@ def display_form2():
     plt.tight_layout()  
     form2.pyplot(fig)
 
+    # Plot the Class Duration and Adaptivity
+    fig, ax = plt.subplots(figsize=(6, 3))
+    # Create the countplot with clear title and legend
+    p = sns.countplot(x='Device', data = df, hue='Adaptivity Level',  palette='bright')
+    ax.set_title("Adaptivity Grouped by Class Duration", fontsize=14)
+    legend = ax.legend(loc='upper right', bbox_to_anchor=(1.2, 1))
+    # Display the plot
+    plt.tight_layout()  
+    form2.pyplot(fig)
+
     le = LabelEncoder()
     #Get the list of column names
     column_names = df.columns.tolist()
