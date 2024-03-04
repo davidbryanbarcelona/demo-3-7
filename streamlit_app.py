@@ -140,7 +140,7 @@ def display_form2():
         form2.write(f"- {col}")
 
     # Display unique values for each column
-    display_form2.write("\n**Unique Values:**")
+    form2.write("\n**Unique Values:**")
     for col, values in unique_values.items():
         form2.write(f"- {col}: {', '.join(map(str, values))}")
 
