@@ -17,9 +17,6 @@ def app():
     if "user_inputs" not in st.session_state:
         st.session_state['user_inputs'] = []
 
-    if "scaler" not in st.session_state:
-        st.session_state["scaler"] = StandardScaler()
-
     if "clf" not in st.session_state:
         st.session_state["clf"] = []
 
