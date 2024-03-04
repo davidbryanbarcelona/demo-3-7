@@ -74,11 +74,10 @@ def display_form1():
     form1.write(text)
 
     form1.subheader('Extreme Random Forest')
-    form1.write("""Often shows better performance on overlapping clusters than both 
-    decision trees and random forests. This is due to additional randomization in 
-    feature selection and splitting criteria. Builds on random forests by 
-    introducing additional randomness in feature selection and splitting criteria, 
-    potentially improving performance on complex data.""")
+    form1.write("""A powerful and versatile classifier that uncovers patterns in 
+    diverse data, leverages multiple decision trees for robust predictions, 
+    offers interpretability into its reasoning, handles missing data effectively, 
+    and boasts fast training times for real-time applications.""")
 
     form1.subheader('Adativity Level Dataset')
     text = """The adaptivity dataset contains information about 
