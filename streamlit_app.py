@@ -57,9 +57,13 @@ def display_form1():
     form1.text(text)
                 
     form1.subheader('Decision Tree')
-    text = """A very fast classfier but vulnerable to overfitting. May struggle with 
-    overlapping clusters due to rigid decision boundaries. Misclassification is 
-    likely at the cluster overlap regions.  Simple to interpret, efficient training."""
+    text = """This model offers lightning-fast classification, 
+    making it ideal for real-time applications. Its clear 
+    decision-making process allows for easy interpretation. 
+    However, be aware that it can overfit to training data
+    if not carefully regularized. Additionally, its rigid 
+    decision boundaries may struggle with overlapping data 
+    clusters, leading to potential misclassifications in these areas."""
     form1.write(text)
 
     form1.subheader('Random Forest')
