@@ -81,7 +81,21 @@ def display_form1():
     \nStudent behaviour: Self Lms, Device
     \nTarget variable: Adaptivity Level"""
     form1.write(text)
-                                                                              
+
+    # Create the selecton of classifier
+    clf = tree.DecisionTreeClassifier()
+    options = ['Decision Tree', 'Random Forest Classifier', 'Extreme Random Forest Classifier']
+    selected_option = st.selectbox('Select the classifier', options)
+    if selected_option =='Random Forest Classifier':
+        clf = RandomForestClassifier(n_jobs=2, random_state=0)
+    elif selected_option=='Extreme Random Forest Classifier':        
+        clf = ExtraTreesClassifier(n_estimators=100, max_depth=4, random_state=0)        
+    else:
+        clf = tree.DecisionTreeClassifier()
+
+    #save the clf to session state
+    st.session_state['clf'] = clf
+
     submit1 = form1.form_submit_button("Start")
     if submit1:
         # Go to the next form        
@@ -158,8 +172,8 @@ def display_form2():
     # Split data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # Create and train the Decision Tree Classifier   
-    clf = DecisionTreeClassifier(random_state=100, max_depth=3, min_samples_leaf=5)
+    # Create and train the classifer
+    clf = st.session_state['clf']
     clf.fit(X_train, y_train)
     st.session_state["clf"] = clf
 
