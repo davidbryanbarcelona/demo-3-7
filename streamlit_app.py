@@ -104,8 +104,12 @@ def display_form2():
     form2.write(df.describe().T)
 
     le = LabelEncoder()
-    # Apply label encoding to all columns at once (excluding potential non-string columns)
-    df = pd.DataFrame(le.fit_transform(df.columns.tolist()))
+
+    #Get the list of column names
+    column_names = df.columns.tolist()
+    # Loop through each column name
+    for cn in column_names:
+        df[cn] = le.fit_transform(df[cn])
 
     form2.write('Got here')
     # Separate features and target variable
