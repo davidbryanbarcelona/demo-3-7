@@ -104,7 +104,7 @@ def display_form2():
     form2.write(df.describe().T)
 
     # make the data numeric
-    df = labeltonumeric(df)    
+    #df = labeltonumeric(df)    
 
     form2.write('Got here')
     # Separate features and target variable
