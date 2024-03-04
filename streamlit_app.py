@@ -56,20 +56,27 @@ def display_form1():
     West Visayas State University"""
     form1.text(text)
                 
-    form1.subheader('The Decision Tree Algorithm')
-    text = """The decision tree algorithm is a supervised learning technique 
-    used for both classification and regression tasks. It works by building 
-    a tree-like model with:
-    \nNodes: These represent features (or questions) from your data.
-    \nBranches: These represent the possible answers to those features (like "yes" or "no").
-    \nLeaves: These represent the final predictions (like "spam" or "not spam").
-    \nThe algorithm builds the tree by recursively splitting the data based on 
-    the feature that best separates the data points into distinct groups. 
-    This process continues until the data points at each leaf are sufficiently 
-    similar, or some other stopping criteria is met."""
+    form1.write('Decision Tree:')
+    text = """A very fast classfier but vulnerable to overfitting. May struggle with 
+    overlapping clusters due to rigid decision boundaries. Misclassification is 
+    likely at the cluster overlap regions.  Simple to interpret, efficient training."""
     form1.write(text)
 
-    form1.write('Adativity Level Dataset')
+    form1.write('Random Forest')
+    text = """Generally handles overlapping clusters better than decision trees due 
+    to averaging predictions from multiple trees. Can still have issues with 
+    highly overlapped clusters. Ensemble method, improves robustness and reduces 
+    overfitting compared to single decision trees."""
+    form1.write(text)
+
+    form1.write('Extreme Random Forest')
+    form1.write("""Often shows better performance on overlapping clusters than both 
+    decision trees and random forests. This is due to additional randomization in 
+    feature selection and splitting criteria. Builds on random forests by 
+    introducing additional randomness in feature selection and splitting criteria, 
+    potentially improving performance on complex data.""")
+
+    form1.subheader('Adativity Level Dataset')
     text = """The adaptivity dataset contains information about 
     the adaptivity of students in an online learning environment. 
     It has 1205 data points, representing individual students. 
