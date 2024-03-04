@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns; sns.set()
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
@@ -83,7 +84,7 @@ def display_form1():
     form1.write(text)
 
     # Create the selecton of classifier
-    clf = tree.DecisionTreeClassifier()
+    clf = DecisionTreeClassifier()
     options = ['Decision Tree', 'Random Forest Classifier', 'Extreme Random Forest Classifier']
     selected_option = form1.selectbox('Select the classifier', options)
     if selected_option =='Random Forest Classifier':
@@ -91,7 +92,7 @@ def display_form1():
     elif selected_option=='Extreme Random Forest Classifier':        
         clf = ExtraTreesClassifier(n_estimators=100, max_depth=4, random_state=0)        
     else:
-        clf = tree.DecisionTreeClassifier()
+        clf = DecisionTreeClassifier()
 
     #save the clf to session state
     st.session_state['clf'] = clf
