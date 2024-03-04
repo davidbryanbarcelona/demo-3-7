@@ -135,14 +135,14 @@ def display_form2():
     columns = df.columns
     unique_values = {col: df[col].unique() for col in columns}
     # Display columns
-    st.write("**Columns:**")
+    form1.write("**Columns:**")
     for col in columns:
-        st.write(f"- {col}")
+        form1.write(f"- {col}")
 
-# Display unique values for each column
-st.write("\n**Unique Values:**")
-for col, values in unique_values.items():
-    st.write(f"- {col}: {', '.join(map(str, values))}")
+    # Display unique values for each column
+    form1.write("\n**Unique Values:**")
+    for col, values in unique_values.items():
+        form1.write(f"- {col}: {', '.join(map(str, values))}")
 
     fig, ax = plt.subplots(figsize=(6, 2))
     # Create the horizontal barplot
