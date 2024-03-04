@@ -131,8 +131,13 @@ def display_form2():
     form2.write('The dataset descriptive stats')
     form2.write(df.describe().T)
 
-    fig, ax = plt.subplots(figsize=(6, 2))
+    data = {}
+    for col in df.columns:
+        data[col] = df[col].unique()
+    df2 = pd.DataFrame(data).rename(columns={'index': 'Column'})
+    form2.write(df2)
 
+    fig, ax = plt.subplots(figsize=(6, 2))
     # Create the horizontal barplot
     sns.countplot(y='Adaptivity Level', data=df, hue='Adaptivity Level', palette='bright', ax=ax)
 
