@@ -224,8 +224,12 @@ def display_form3():
     st.session_state["current_form"] = 3
     form3 = st.form("prediction")
     form3.subheader('Prediction')
-    form3.write('The trained model will predict if a debtor will repay the loan or not')
+    form3.write('The trained model will predict the Adaptivity Level')
 
+    form3.subheader('Demographic Option')
+    gender = st.selectbox('Gender:', ['Boy', 'Girl'])
+    age = st.selectbox('Age' ['21-25', '16-20', '11-15', '26-30', '6-10', '1-5]')
+                       
     update_values()
 
     predictbn = form3.form_submit_button("Predict")
