@@ -82,7 +82,7 @@ def display_form1():
     It's a worthwhile alternative to explore when dealing with complex data.."""
     form1.write(text)
 
-    form1.subheader('Adativity Level Dataset')
+    form1.subheader('Adaptivity Level Dataset')
     text = """The adaptivity dataset contains information about 
     the adaptivity of students in an online learning environment. 
     It has 1205 data points, representing individual students. 
