@@ -56,7 +56,7 @@ def display_form1():
     West Visayas State University"""
     form1.text(text)
                 
-    form1.subheader('Decision Tree:')
+    form1.subheader('Decision Tree')
     text = """A very fast classfier but vulnerable to overfitting. May struggle with 
     overlapping clusters due to rigid decision boundaries. Misclassification is 
     likely at the cluster overlap regions.  Simple to interpret, efficient training."""
