@@ -132,7 +132,7 @@ def display_form2():
     # Plot the Gender and Adaptivity
     fig, ax = plt.subplots(figsize=(6, 3))
     # Create the countplot with clear title and legend
-    p = sns.countplot(x='Gender', data = df1, hue='Adaptivity Level',  palette='bright')
+    p = sns.countplot(x='Gender', data = df, hue='Adaptivity Level',  palette='bright')
     ax.set_title("Adaptivity Grouped by Sex", fontsize=14)
     legend = ax.legend(loc='upper right', bbox_to_anchor=(1.2, 1))
     # Display the plot
