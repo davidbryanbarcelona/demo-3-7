@@ -8,7 +8,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder
 
 def app():
     if "reset_app" not in st.session_state:
@@ -98,7 +98,7 @@ def display_form2():
     form2.subheader('Classifier Training')        
 
     #load the data and the labels
-    dbfile = 'loan-repayment.csv'
+    dbfile = 'adaptability.csv'
     df = pd.read_csv(dbfile, header=0)
 
     #display the data set
@@ -108,66 +108,34 @@ def display_form2():
     form2.write('The dataset descriptive stats')
     form2.write(df.describe().T)
 
+    # make the data numeric
+    df = labeltonumeric(df)    
+
     # Separate features and target variable
-    X = df.drop('result', axis=1)  # Target variable column name
-    y = df['result']
+    X = df.drop('Adaptivity Level', axis=1)  # Target variable column name
+    y = df['Adaptivity Level']
     
     # Split data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # Standardize features using StandardScaler (recommended)
-    scaler = st.session_state["scaler"] 
-    X_train_scaled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
-
-    #save the scaler object for later use in prediction
-    st.session_state["scaler"] = scaler
-    
     fig, ax = plt.subplots(figsize=(6, 2))
 
     # Create the horizontal barplot
-    sns.countplot(y='result', data=df, hue='result', palette='bright', ax=ax)
+    sns.countplot(y='Adaptivity Level', data=df, hue='Adaptivity Level', palette='bright', ax=ax)
 
     # Add the title
-    ax.set_title('Distribution of Paid/Not Paid')
+    ax.set_title('Distribution of Adaptivity Level')
     # Display the plot using Streamlit
     form2.pyplot(fig)
-    form2.write("""Figure 1. The data shows that the debtors are almost equal between 
-    those that paid their loans (yes) and those that did not (no).""")
-
-    # Create a figure and an axis
-    fig, ax = plt.subplots(figsize=(6, 6))
-
-    # Create a scatter plot with color based on species
-    sns.scatterplot(
-        x="credit score",
-        y="last payment",
-        hue="result",
-        palette="bright",
-        data=df,
-        ax=ax,
-    )
-    # Add labels and title
-    ax.set_xlabel("Credit Score")
-    ax.set_ylabel("Last Payment")
-    ax.set_title("Debtors Payment Status")
-
-    # Add legend
-    plt.legend(title="Paid the Loan")
-
-    # Show the plot
-    form2.pyplot(fig)
-
-    form2.write("""\n\nFigure 2. The data shows that the groups paid
-                and not paid is almost linearly separable based on their last payment.""")
-
+    form2.write("""Figure 1. The data shows the distribution of respondents as to their Adaptivity Level""")
+    
     # Create and train the Decision Tree Classifier   
     clf = DecisionTreeClassifier(random_state=100, max_depth=3, min_samples_leaf=5)
-    clf.fit(X_train_scaled, y_train)
+    clf.fit(X_train, y_train)
     st.session_state["clf"] = clf
 
     # Make predictions on the test set
-    y_test_pred = clf.predict(X_test_scaled)
+    y_test_pred = clf.predict(X_test)
 
     form2.subheader('Confusion Matrix')
     cm = confusion_matrix(y_test, y_test_pred)
@@ -254,6 +222,12 @@ def update_values():
 
     st.session_state['user_inputs'] = [[initial_payment, 
         last_payment, credit_score, house_number]]
+
+def labeltonumeric(df):
+   le = LabelEncoder()
+   for i in range(14):
+        df[i] = le.fit_transform(df[i])
+   return df
 
 if __name__ == "__main__":
     app()
