@@ -83,9 +83,7 @@ def display_form1():
     form1.write(text)
                                                                               
     submit1 = form1.form_submit_button("Start")
-
     if submit1:
-        form1 = [];
         # Go to the next form        
         display_form2()
 
@@ -108,6 +106,7 @@ def display_form2():
     # make the data numeric
     df = labeltonumeric(df)    
 
+    form2.write('Got here')
     # Separate features and target variable
     X = df.drop('Adaptivity Level', axis=1)  # Target variable column name
     y = df['Adaptivity Level']
