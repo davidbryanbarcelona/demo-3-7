@@ -187,12 +187,12 @@ def display_form2():
     form2.write("""Figure 4. The plot shows the Adaptivity Level of respondents 
                 according to Class Duration""")
 
-    #le = LabelEncoder()
+    le = LabelEncoder()
     #Get the list of column names
-    #column_names = df.columns.tolist()
+    column_names = df.columns.tolist()
     # Loop through each column name
-    #for cn in column_names:
-    #    df[cn] = le.fit_transform(df[cn])
+    for cn in column_names:
+        df[cn] = le.fit_transform(df[cn])
 
     # Separate features and target variable
     X = df.drop('Adaptivity Level', axis=1)  # Target variable column name
