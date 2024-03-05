@@ -22,14 +22,33 @@ def app():
         st.session_state["clf"] = []
 
     #initialize the slider variables
-    if "initial_payment" not in st.session_state:        
-        st.session_state['initial_payment'] = 200
-    if "last_payment" not in st.session_state:
-        st.session_state['last_payment'] = 12000
-    if "credit_score" not in st.session_state:
-        st.session_state['credit_score'] = 500
-    if "house_number" not in st.session_state:
-        st.session_state['house_number'] = 4000
+    if "gender" not in st.session_state:        
+        st.session_state['gender'] = []
+    if "age" not in st.session_state:        
+        st.session_state['age'] = []
+    if "educlevel" not in st.session_state:        
+        st.session_state['educlevel'] = []
+    if "institutiontype" not in st.session_state:        
+        st.session_state['institutiontype'] = []
+    if "location" not in st.session_state:        
+        st.session_state['location'] = []
+    if "itstudent" not in st.session_state:        
+        st.session_state['itstudent'] = []
+    if "loadshedding" not in st.session_state:        
+        st.session_state['loadshedding'] = []
+    if "financialcondition" not in st.session_state:        
+        st.session_state['financialcondition'] = []
+    if "internettype" not in st.session_state:        
+        st.session_state['internettype'] = []
+    if "networktype" not in st.session_state:        
+        st.session_state['networktype'] = []
+    if "classduration" not in st.session_state:        
+        st.session_state['classduration'] = []
+    if "selflms" not in st.session_state:        
+        st.session_state['selflms'] = []
+    if "device" not in st.session_state:        
+        st.session_state['device'] = []
+
 
     # Use session state to track the current form
     if "current_form" not in st.session_state:
@@ -227,34 +246,57 @@ def display_form3():
     form3.write('The trained model will predict the Adaptivity Level')
 
     form3.subheader('Demographic Information')
-    gender = form3.selectbox('Gender:', ['Boy', 'Girl'])
-    age = form3.selectbox('Age:', ['21-25', '16-20', '11-15', '26-30', '6-10', '1-5'])
-    educlevel = form3.selectbox('Education Level:', ['School', 'College', 'University'])
-    institutiontype = form3.selectbox('Institution Type:', ['Government', 'Non Government'])
-    location = form3.selectbox('Is the Location inside the school?', ['Yes', 'No'])
+    gender = form3.selectbox('Gender:', ['Boy', 'Girl'], 
+            key="gender", on_change=update_selections)
+    st.session_state['gender'] = gender
+    age = form3.selectbox('Age:', ['21-25', '16-20', '11-15', '26-30', '6-10', '1-5'], 
+            key="age", on_change=update_selections)
+    st.session_state['age'] = age
+    educlevel = form3.selectbox('Education Level:', ['School', 'College', 'University'], 
+            key="educlevel", on_change=update_selections)
+    st.session_state['educlevel'] = educlevel
+    institutiontype = form3.selectbox('Institution Type:', ['Government', 'Non Government'], 
+            key="institutiontype", on_change=update_selections)
+    st.session_state['institutiontype'] = institutiontype
+    location = form3.selectbox('Is the Location inside the school?', ['Yes', 'No'], 
+            key="location", on_change=update_selections)
+    st.session_state['location'] = location
     form3.subheader('Learning Environment')
-    itstudent = form3.selectbox('IT Student:', ['No', 'Yes'])
-    loadshedding = form3.selectbox('Load-shedding:', ['Low', 'High'])
-    financialcondition = form3.selectbox('Financial Condition:', ['Mid', 'Poor', 'Rich'])
-    internettype = form3.selectbox('Internet Type:', ['Wifi', 'Mobile Data'])
-    networktype = form3.selectbox('Network Type:', ['4G', '3G', '2G'])
-    classduration = form3.selectbox('Class Duration:', ['0', '1-3', '3-6'])
+    itstudent = form3.selectbox('IT Student:', ['No', 'Yes'],
+            key="itstudent", on_change=update_selections)
+    st.session_state['itstudent'] = itstudent
+    loadshedding = form3.selectbox('Load-shedding:', ['Low', 'High'], 
+            key="loadshedding", on_change=update_selections)
+    st.session_state['loadshedding'] = loadshedding
+    financialcondition = form3.selectbox('Financial Condition:', ['Mid', 'Poor', 'Rich'],
+            key="financialcondition", on_change=update_selections)
+    st.session_state['financialcondition'] = financialcondition
+    internettype = form3.selectbox('Internet Type:', ['Wifi', 'Mobile Data'], 
+            key="internettype", on_change=update_selections)
+    st.session_state['internettype'] = internettype
+    networktype = form3.selectbox('Network Type:', ['4G', '3G', '2G'], 
+            key="networktype", on_change=update_selections)
+    st.session_state['networktype'] = networktype
+    classduration = form3.selectbox('Class Duration:', ['0', '1-3', '3-6'], 
+            key="classduration", on_change=update_selections)
+    st.session_state['classduration'] = classduration
     form3.subheader('Student Preferences')
-    selflms = form3.selectbox('Self Managed LMS:', ['No', 'Yes'])
-    device = form3.selectbox('Device:',  ['Tab', 'Mobile', 'Computer'])
-                       
-    st.session_state['user_inputs'] = []
-
+    selflms = form3.selectbox('Self Managed LMS:', ['No', 'Yes'], 
+            key="selflms", on_change=update_selections)
+    st.session_state['selflms'] = selflms
+    device = form3.selectbox('Device:',  ['Tab', 'Mobile', 'Computer'], 
+            key="device", on_change=update_selections)
+    st.session_state['device'] = device
+                               
     predictbn = form3.form_submit_button("Predict")
     if predictbn:
+        update_selections()
         user_inputs = np.array(st.session_state['user_inputs'])
-    
-
         form3.write(user_inputs)
 
-        predicted =  st.session_state["clf"].predict(test_data_scaled)
-        result = 'Will the debtor pay? The model predicts: ' + predicted[0]
-        form3.subheader(result)
+        #predicted =  st.session_state["clf"].predict(test_data_scaled)
+        #result = 'Will the debtor pay? The model predicts: ' + predicted[0]
+        #form3.subheader(result)
 
     submit3 = form3.form_submit_button("Reset")
     if submit3:
@@ -262,15 +304,26 @@ def display_form3():
         st.session_state.clear()
         form3.write('Click reset again to reset this app.')
 
-def update_values():
-    """Get the updated values from the sliders."""
-    initial_payment = st.session_state['initial_payment']
-    last_payment = st.session_state['last_payment']
-    credit_score = st.session_state['credit_score']
-    house_number = st.session_state['house_number']
+def update_selections():
+    """Get the updated values from the combo boxes."""
+    gender = st.session_state['gender']
+    age = st.session_state['age'] 
+    educlevel = st.session_state['educlevel']
+    institutiontype = st.session_state['institutiontype']
+    location = st.session_state['location'] 
+    itstudent = st.session_state['itstudent']
+    loadshedding= st.session_state['loadshedding']
+    financialcondition = st.session_state['financialcondition']
+    internettype = st.session_state['internettype'] 
+    networktype = st.session_state['networktype']
+    classduration = st.session_state['classduration']
+    selflms = st.session_state['selflms']
+    device= st.session_state['device']
 
-    st.session_state['user_inputs'] = [[initial_payment, 
-        last_payment, credit_score, house_number]]
+    st.session_state['user_inputs'] = [[ gender, 
+        age, educlevel, institutiontype, location, 
+        itstudent, loadshedding, financialcondition, internettype, 
+        networktype, classduration, selflms, device]]
 
 if __name__ == "__main__":
     app()
