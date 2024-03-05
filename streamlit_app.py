@@ -304,7 +304,7 @@ def display_form3():
             encoded.append(result)
             i = i + 1
         encoded = pd.DataFrame(encoded)
-        form3.write(encoded)
+        form3.write(encoded.transpose())
         #predicted =  st.session_state["clf"].predict(np.array(encoded))
         #result = 'The predicted Adaptivity Level: ' + predicted[0]
         #form3.subheader(result)
