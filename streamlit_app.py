@@ -303,7 +303,7 @@ def display_form3():
             result = le_list[i].transform([value])
             encoded.append(result)
             i = i + 1
-        encoded = pd.dataframe(encoded)
+        encoded = pd.DataFrame(encoded)
         form3.write(encoded)
         #predicted =  st.session_state["clf"].predict(np.array(encoded))
         #result = 'The predicted Adaptivity Level: ' + predicted[0]
