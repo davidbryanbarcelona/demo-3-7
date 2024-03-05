@@ -297,7 +297,7 @@ def display_form3():
 
         le_list = st.session_state["le"]
 
-        encoded = []
+        encoded = {}
         i = 0
         for value in user_inputs[0]:
             result = le_list[i].transform([value])
