@@ -314,7 +314,7 @@ def display_form3():
         else:
             level = 'High'
 
-        result = 'The predicted Adaptivity Level: ' + level)
+        result = 'The predicted Adaptivity Level: ' + level
         form3.subheader(result)
 
     submit3 = form3.form_submit_button("Reset")
