@@ -310,7 +310,7 @@ def display_form3():
         if predicted==0:
             level = 'Low'
         elif predicted==1:
-            level = 'Mid'
+            level = 'Moderate'
         else:
             level = 'High'
 
