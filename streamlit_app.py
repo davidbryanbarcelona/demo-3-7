@@ -77,7 +77,14 @@ def display_form1():
     College of Information and Communications Technology
     West Visayas State University"""
     form1.text(text)
-                
+
+    text = """Adaptability is a property of something, 
+        indicating its potential for change."""
+    form1.write(text)
+    text = """Adaptivity describes something that is 
+        actively undergoing the process of change."""
+    form1.write(text)        
+    
     form1.subheader('Decision Tree')
     text = """This model offers lightning-fast classification, 
     making it ideal for real-time applications. Its clear 
