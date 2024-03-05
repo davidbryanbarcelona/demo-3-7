@@ -300,7 +300,8 @@ def display_form3():
         encoded = []
         i = 0
         for value in user_inputs[0]:
-            encoded.append(le_list[i].transform(value))
+            form3.write(value)
+            #encoded.append(le_list[i].transform(value))
             i = i + 1
                            
         form3.write(encoded)
