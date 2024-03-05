@@ -21,6 +21,9 @@ def app():
     if "clf" not in st.session_state:
         st.session_state["clf"] = []
 
+    if "le" not in st.session_state:
+        st.session_state["le"] = LabelEncoder()
+
     #initialize the slider variables
     if "gender" not in st.session_state:        
         st.session_state['gender'] = []
@@ -206,12 +209,15 @@ def display_form2():
     form2.write("""Figure 4. The plot shows the Adaptivity Level of respondents 
                 according to Class Duration""")
 
-    le = LabelEncoder()
+    le = st.session_state["le"]
     #Get the list of column names
     column_names = df.columns.tolist()
     # Loop through each column name
     for cn in column_names:
         df[cn] = le.fit_transform(df[cn])
+
+    # save the label encoder to the session state
+    st.session_state["le"] = le
 
     # Separate features and target variable
     X = df.drop('Adaptivity Level', axis=1)  # Target variable column name
@@ -278,12 +284,18 @@ def display_form3():
     predictbn = form3.form_submit_button("Predict")
     if predictbn:
         update_selections()
+        form3.write('Unencoded user inputs:')
         user_inputs = np.array(st.session_state['user_inputs'])
         form3.write(user_inputs)
 
-        #predicted =  st.session_state["clf"].predict(test_data_scaled)
-        #result = 'Will the debtor pay? The model predicts: ' + predicted[0]
-        #form3.subheader(result)
+        form3.write('Encoded user inputs:')
+        le = st.session_state["le"]
+        encoded = le.transform(user_inputs)
+        form3.write(encoded)
+
+        predicted =  st.session_state["clf"].predict(encoded)
+        result = 'The predicted Adaptivity Level: ' + predicted[0]
+        form3.subheader(result)
 
     submit3 = form3.form_submit_button("Reset")
     if submit3:
