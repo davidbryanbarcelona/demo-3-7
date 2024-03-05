@@ -291,7 +291,7 @@ def display_form3():
 
         form3.write('Encoded user inputs:')
         le = st.session_state["le"]
-        encoded = le.transform(user_inputs)
+        encoded = le.transform(np.array(user_inputs))
         form3.write(encoded)
 
         #predicted =  st.session_state["clf"].predict(encoded)
