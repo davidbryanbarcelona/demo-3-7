@@ -240,7 +240,7 @@ def display_form3():
     networktype = form3.selectbox('Network Type:', ['4G', '3G', '2G'])
     classduration = form3.selectbox('Class Duration:', ['0', '1-3', '3-6'])
     form3.subheader('Student Preferences')
-    selflms = form3.selectbox('Self Managed LMS:', []'No', 'Yes'])
+    selflms = form3.selectbox('Self Managed LMS:', ['No', 'Yes'])
     device = form3.selectbox('Device:',  ['Tab', 'Mobile', 'Computer'])
                        
     st.session_state['user_inputs'] = []
