@@ -307,7 +307,8 @@ def display_form3():
         # Assuming encoded is a list of lists after the loop
         encoded_array = np.array(encoded)  # Convert list to a NumPy array
         reshaped_encoded = encoded_array.reshape(-1, 1)  # Reshape to 2D with each row as a sample
-        predicted = st.session_state["clf"].predict(reshaped_encoded)
+        form3.write(reshaped_encoded)
+        #predicted = st.session_state["clf"].predict(reshaped_encoded)
 
         #predicted =  st.session_state["clf"].predict(encoded)
         #result = 'The predicted Adaptivity Level: ' + predicted[0]
