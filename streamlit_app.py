@@ -294,9 +294,9 @@ def display_form3():
         encoded = le.transform(user_inputs)
         form3.write(encoded)
 
-        predicted =  st.session_state["clf"].predict(encoded)
-        result = 'The predicted Adaptivity Level: ' + predicted[0]
-        form3.subheader(result)
+        #predicted =  st.session_state["clf"].predict(encoded)
+        #result = 'The predicted Adaptivity Level: ' + predicted[0]
+        #form3.subheader(result)
 
     submit3 = form3.form_submit_button("Reset")
     if submit3:
