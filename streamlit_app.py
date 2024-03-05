@@ -291,7 +291,7 @@ def display_form3():
 
         form3.write('Encoded user inputs:')
         le = st.session_state["le"]
-        encoded = le.transform(np.array(user_inputs))
+        encoded = le.transform(user_inputs[0])
         form3.write(encoded)
 
         #predicted =  st.session_state["clf"].predict(encoded)
@@ -320,10 +320,10 @@ def update_selections():
     selflms = st.session_state['selflms']
     device= st.session_state['device']
 
-    st.session_state['user_inputs'] = [ gender, 
+    st.session_state['user_inputs'] = [[ gender, 
         age, educlevel, institutiontype, location, 
         itstudent, loadshedding, financialcondition, internettype, 
-        networktype, classduration, selflms, device]
+        networktype, classduration, selflms, device]]
 
 if __name__ == "__main__":
     app()
