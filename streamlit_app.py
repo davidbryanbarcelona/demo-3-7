@@ -304,7 +304,7 @@ def display_form3():
             encoded.append(result)
             i = i + 1
 
-        form3.write(encoded[0])
+        form3.write(np.array(encoded))
 
         # Assuming encoded is a list of lists after the loop
         #encoded_array = np.array(encoded)  # Convert list to a NumPy array
