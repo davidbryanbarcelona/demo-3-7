@@ -320,10 +320,10 @@ def update_selections():
     selflms = st.session_state['selflms']
     device= st.session_state['device']
 
-    st.session_state['user_inputs'] = [[ gender, 
+    st.session_state['user_inputs'] = [ gender, 
         age, educlevel, institutiontype, location, 
         itstudent, loadshedding, financialcondition, internettype, 
-        networktype, classduration, selflms, device]]
+        networktype, classduration, selflms, device]
 
 if __name__ == "__main__":
     app()
