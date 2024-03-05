@@ -308,7 +308,7 @@ def display_form3():
         encoded_array = np.array(encoded)  # Convert list to a NumPy array
         encoded_2d = [[value] for value in encoded_array] 
         #reshaped_encoded = encoded_array.reshape(-1, 1)  # Reshape to 2D with each row as a sample
-        form3.write(encoded_2d)
+        form3.write(np.array(encoded_2d))
         #predicted = st.session_state["clf"].predict(reshaped_encoded)
 
         #predicted =  st.session_state["clf"].predict(encoded)
