@@ -294,11 +294,12 @@ def display_form3():
         form3.write(user_inputs)
 
         form3.write('Encoded user inputs:')
-        
+
         le_list = st.session_state["le"]
+        
         encoded = []
         for i in le_list:
-            encoded.append(le_list[i].transform(user_inputs[0][i])
+            encoded.append(le_list[i].transform(user_inputs[0:i])
                            
         form3.write(encoded)
 
