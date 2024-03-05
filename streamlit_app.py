@@ -22,7 +22,7 @@ def app():
         st.session_state["clf"] = []
 
     if "le" not in st.session_state:
-        st.session_state["le"] = LabelEncoder()
+        st.session_state["le"] = []
 
     #initialize the slider variables
     if "gender" not in st.session_state:        
@@ -212,13 +212,17 @@ def display_form2():
     le = st.session_state["le"]
     #Get the list of column names
     column_names = df.columns.tolist()
+
+    le_list = []  # Create an empty array to store LabelEncoders
     # Loop through each column name
     for cn in column_names:
-        le.fit(df[cn])
-        df[cn] = le.transform(df[cn])
+        le = LabelEncoder()  # Create a new LabelEncoder for each column
+        le.fit(df[cn])  # Fit the encoder to the specific column
+        le_list.append(le)  # Append the encoder to the list
+        df[cn] = le.transform(df[cn])  # Transform the column using the fitted encoder
 
     # save the label encoder to the session state
-    st.session_state["le"] = le
+    st.session_state["le"] = le_list
 
     # Separate features and target variable
     X = df.drop('Adaptivity Level', axis=1)  # Target variable column name
@@ -290,8 +294,12 @@ def display_form3():
         form3.write(user_inputs)
 
         form3.write('Encoded user inputs:')
-        le = st.session_state["le"]
-        encoded = le.transform(user_inputs[0])
+        
+        le_list = st.session_state["le"]
+        encoded = []
+        for i in le_list:
+            encoded.append(le_list[i].transform(user_inputs[0][i])
+                           
         form3.write(encoded)
 
         #predicted =  st.session_state["clf"].predict(encoded)
