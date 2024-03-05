@@ -226,15 +226,29 @@ def display_form3():
     form3.subheader('Prediction')
     form3.write('The trained model will predict the Adaptivity Level')
 
-    form3.write('Demographic Information')
+    form3.subheader('Demographic Information')
     gender = form3.selectbox('Gender:', ['Boy', 'Girl'])
-    age = form3.selectbox('Age', ['21-25', '16-20', '11-15', '26-30', '6-10', '1-5'])
+    age = form3.selectbox('Age:', ['21-25', '16-20', '11-15', '26-30', '6-10', '1-5'])
+    educlevel = form3.selectbox('Education Level:', ['School', 'College', 'University'])
+    institutiontype = form3.selectbox('Institution Type:', ['Government', 'Non Government'])
+    location = form3.selectbox('Is the Location inside the school?', ['Yes', 'No'])
+    form3.subheader('Learning Environment')
+    itstudent = form3.selectbox('IT Student:', ['No', 'Yes'])
+    loadshedding = form3.selectbox('Load-shedding:', ['Low', 'High'])
+    financialcondition = form3.selectbox('Financial Condition:', ['Mid', 'Poor', 'Rich'])
+    internettype = form3.selectbox('Internet Type:', ['Wifi', 'Mobile Data'])
+    networktype = form3.selectbox('Network Type:', ['4G', '3G', '2G'])
+    classduration = form3.selectbox('Class Duration:', ['0', '1-3', '3-6'])
+    form3.subheader('Student Preferences')
+    selflms = form3.selectbox('Self Managed LMS:', []'No', 'Yes'])
+    device = form3.selectbox('Device:',  ['Tab', 'Mobile', 'Computer'])
                        
-    update_values()
+    st.session_state['user_inputs'] = []
 
     predictbn = form3.form_submit_button("Predict")
     if predictbn:
         user_inputs = np.array(st.session_state['user_inputs'])
+    
 
         form3.write(user_inputs)
 
