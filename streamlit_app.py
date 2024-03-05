@@ -301,11 +301,10 @@ def display_form3():
         i = 0
         for value in user_inputs[0]:
             result = le_list[i].transform([value])
-            form3.write(result)
             encoded.append(result)
             i = i + 1
                            
-        form3.write(np.array(encoded))
+        form3.write(encoded[0])
 
         #predicted =  st.session_state["clf"].predict(encoded)
         #result = 'The predicted Adaptivity Level: ' + predicted[0]
