@@ -214,6 +214,7 @@ def display_form2():
     column_names = df.columns.tolist()
     # Loop through each column name
     for cn in column_names:
+        le.fit(df[cn])
         df[cn] = le.fit_transform(df[cn])
 
     # save the label encoder to the session state
