@@ -246,46 +246,33 @@ def display_form3():
     form3.write('The trained model will predict the Adaptivity Level')
 
     form3.subheader('Demographic Information')
-    gender = form3.selectbox('Gender:', ['Boy', 'Girl'], 
-            key="gender", on_change=update_selections)
+    gender = form3.selectbox('Gender:', ['Boy', 'Girl'])
     st.session_state['gender'] = gender
-    age = form3.selectbox('Age:', ['21-25', '16-20', '11-15', '26-30', '6-10', '1-5'], 
-            key="age", on_change=update_selections)
+    age = form3.selectbox('Age:', ['21-25', '16-20', '11-15', '26-30', '6-10', '1-5'])
     st.session_state['age'] = age
-    educlevel = form3.selectbox('Education Level:', ['School', 'College', 'University'], 
-            key="educlevel", on_change=update_selections)
+    educlevel = form3.selectbox('Education Level:', ['School', 'College', 'University'])
     st.session_state['educlevel'] = educlevel
-    institutiontype = form3.selectbox('Institution Type:', ['Government', 'Non Government'], 
-            key="institutiontype", on_change=update_selections)
+    institutiontype = form3.selectbox('Institution Type:', ['Government', 'Non Government'])
     st.session_state['institutiontype'] = institutiontype
-    location = form3.selectbox('Is the Location inside the school?', ['Yes', 'No'], 
-            key="location", on_change=update_selections)
+    location = form3.selectbox('Is the Location inside the school?', ['Yes', 'No'])
     st.session_state['location'] = location
     form3.subheader('Learning Environment')
-    itstudent = form3.selectbox('IT Student:', ['No', 'Yes'],
-            key="itstudent", on_change=update_selections)
+    itstudent = form3.selectbox('IT Student:', ['No', 'Yes'])
     st.session_state['itstudent'] = itstudent
-    loadshedding = form3.selectbox('Load-shedding:', ['Low', 'High'], 
-            key="loadshedding", on_change=update_selections)
+    loadshedding = form3.selectbox('Load-shedding:', ['Low', 'High'])
     st.session_state['loadshedding'] = loadshedding
-    financialcondition = form3.selectbox('Financial Condition:', ['Mid', 'Poor', 'Rich'],
-            key="financialcondition", on_change=update_selections)
+    financialcondition = form3.selectbox('Financial Condition:', ['Mid', 'Poor', 'Rich'])
     st.session_state['financialcondition'] = financialcondition
-    internettype = form3.selectbox('Internet Type:', ['Wifi', 'Mobile Data'], 
-            key="internettype", on_change=update_selections)
+    internettype = form3.selectbox('Internet Type:', ['Wifi', 'Mobile Data'])
     st.session_state['internettype'] = internettype
-    networktype = form3.selectbox('Network Type:', ['4G', '3G', '2G'], 
-            key="networktype", on_change=update_selections)
+    networktype = form3.selectbox('Network Type:', ['4G', '3G', '2G'])
     st.session_state['networktype'] = networktype
-    classduration = form3.selectbox('Class Duration:', ['0', '1-3', '3-6'], 
-            key="classduration", on_change=update_selections)
+    classduration = form3.selectbox('Class Duration:', ['0', '1-3', '3-6'])
     st.session_state['classduration'] = classduration
     form3.subheader('Student Preferences')
-    selflms = form3.selectbox('Self Managed LMS:', ['No', 'Yes'], 
-            key="selflms", on_change=update_selections)
+    selflms = form3.selectbox('Self Managed LMS:', ['No', 'Yes'])
     st.session_state['selflms'] = selflms
-    device = form3.selectbox('Device:',  ['Tab', 'Mobile', 'Computer'], 
-            key="device", on_change=update_selections)
+    device = form3.selectbox('Device:',  ['Tab', 'Mobile', 'Computer'])
     st.session_state['device'] = device
                                
     predictbn = form3.form_submit_button("Predict")
