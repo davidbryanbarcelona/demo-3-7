@@ -215,7 +215,7 @@ def display_form2():
     # Loop through each column name
     for cn in column_names:
         le.fit(df[cn])
-        df[cn] = le.fit_transform(df[cn])
+        df[cn] = le.transform(df[cn])
 
     # save the label encoder to the session state
     st.session_state["le"] = le
