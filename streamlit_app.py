@@ -304,7 +304,7 @@ def display_form3():
             encoded.append(result)
             i = i + 1
                            
-        form3.write(encoded[0])
+        form3.write(encoded)
 
         #predicted =  st.session_state["clf"].predict(encoded)
         #result = 'The predicted Adaptivity Level: ' + predicted[0]
