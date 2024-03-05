@@ -298,8 +298,10 @@ def display_form3():
         le_list = st.session_state["le"]
 
         encoded = []
-        for i in le_list:
-            encoded.append(le_list[i].transform(user_inputs[0:i]))
+        i = 0
+        for value in user_inputs[0]:
+            encoded.append(le_list[i].transform(value))
+            i = i + 1
                            
         form3.write(encoded)
 
