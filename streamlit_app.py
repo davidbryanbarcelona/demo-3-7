@@ -306,7 +306,15 @@ def display_form3():
         encoded = pd.DataFrame(encoded)
         form3.write(encoded.transpose())
         predicted =  st.session_state["clf"].predict(encoded.transpose())
-        result = 'The predicted Adaptivity Level: ' + str(predicted[0])
+        level = ''
+        if predicted==0:
+            level = 'Low'
+        elif predicted==1:
+            level = 'Mid'
+        else:
+            level = 'High'
+
+        result = 'The predicted Adaptivity Level: ' + level)
         form3.subheader(result)
 
     submit3 = form3.form_submit_button("Reset")
